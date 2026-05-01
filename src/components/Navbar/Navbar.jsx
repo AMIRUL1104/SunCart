@@ -1,4 +1,6 @@
+import Link from "next/link";
 import React from "react";
+import LinkButton from "./Link";
 
 function Navbar() {
   const links = [
@@ -28,44 +30,28 @@ function Navbar() {
           </div>
           <ul
             tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content space-y-4 bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <a>Item 1</a>
-            </li>
-
-            <li>
-              <a>Item 3</a>
-            </li>
+            {links.map((link) => (
+              <LinkButton key={link.name} link={link}></LinkButton>
+            ))}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <Link href={"/"} className="btn btn-ghost text-xl">
+          SunCart
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <a>Item 1</a>
-          </li>
-          <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2 bg-base-100 w-40 z-1">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <a>Item 3</a>
-          </li>
+        <ul className="menu menu-horizontal px-1 space-x-4">
+          {links.map((link) => (
+            <LinkButton key={link.name} link={link}></LinkButton>
+          ))}
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <Link href={"/signin"} className="btn">
+          SignIn
+        </Link>
       </div>
     </div>
   );
