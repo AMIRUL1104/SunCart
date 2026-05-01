@@ -39,7 +39,10 @@ function Navbar() {
             ))}
           </ul>
         </div>
-        <Link href={"/"} className="btn btn-ghost text-xl">
+        <Link
+          href={"/"}
+          className="btn btn-ghost text-2xl font-extrabold text-[#1e8d8d]"
+        >
           SunCart
         </Link>
       </div>
@@ -51,8 +54,8 @@ function Navbar() {
         </ul>
       </div>
       <div className="navbar-end space-x-4">
-        <Link href={"/cart"} className="hover:btn py-1 px-2 ">
-          <FaShoppingCart />
+        <Link href={"/cart"} className="btn  py-1 px-2 ">
+          <FaShoppingCart /> cart
         </Link>
         <Link
           href={"/signin"}
