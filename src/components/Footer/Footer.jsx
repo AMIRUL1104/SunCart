@@ -3,13 +3,16 @@ import Image from "next/image";
 import facebook from "@/assets/facebook.png";
 import loginstagram from "@/assets/instagram.png";
 import twitter from "@/assets/twitter.png";
+import footerbg from "@/assets/footerbg.png";
 import Link from "next/link";
 
 function Footer() {
   return (
-    <footer className="w-full mt-16 ">
+    <footer className="bg-[url(@/assets/footerbg.png)] bg-no-repeat bg-cover w-full mt-16 ">
       {/* main section */}
-      <div className="bg-[#244D3F] py-8 text-center text-sm text-gray-300 flex flex-col items-center justify-center gap-6 px-4">
+      <div
+        className={` py-8 text-center text-sm text-gray-300 flex flex-col items-center justify-center gap-6 px-4`}
+      >
         <div className="">
           <h2 className=" text-lg sm:text-3xl font-bold text-white">
             SunCart - Summer Essentials Store
@@ -22,7 +25,7 @@ function Footer() {
         </p>
 
         <div className="flex flex-col gap-3">
-          <p className="font-semibold text-gray-400 uppercase text-[10px] tracking-widest">
+          <p className="font-semibold text-gray-100 uppercase text-[10px] tracking-widest">
             Social Links
           </p>
           <div className="flex items-center justify-center gap-5">
@@ -46,25 +49,19 @@ function Footer() {
 
       {/* divider */}
       <hr className="border-gray-500" />
-
+      {/* bg-[#244D3F] */}
       {/* copyright and legal section */}
-      <div className="bg-[#244D3F] w-full py-6 flex max-sm:flex-col items-center max-sm:justify-between justify-between gap-4 px-4">
-        <p className="text-center text-xs text-gray-400">
+      <div className=" w-full py-6 flex max-sm:flex-col items-center max-sm:justify-between justify-between gap-4 px-4">
+        <p className="text-center text-xs text-gray-100">
           &copy; {new Date().getFullYear()} SunCart. All rights reserved.
         </p>
 
         <div className="flex items-center gap-6">
-          <Link
-            href="/privacy-policy"
-            className="text-xs text-gray-400 hover:text-white transition-colors"
-          >
+          <Link href="/privacy-policy" className="text-xs text-gray-100 ">
             Privacy Policy
           </Link>
 
-          <Link
-            href="/terms-of-service"
-            className="text-xs text-gray-400 hover:text-white transition-colors"
-          >
+          <Link href="/terms-of-service" className="text-xs text-gray-100 ">
             Terms of Service
           </Link>
         </div>

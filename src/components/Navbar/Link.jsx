@@ -7,7 +7,7 @@ function LinkButton({ link }) {
   return (
     <Link
       href={link.href}
-      className={`${path === link.href && " border-b-2 "} hover:border-b-2`}
+      className={`${path === link.href && "  font-medium text-gray-50 bg-[#1e8d8d]"} text-center hover:font-medium  p-2 rounded-sm `}
       key={link.name}
     >
       {link.name}{" "}

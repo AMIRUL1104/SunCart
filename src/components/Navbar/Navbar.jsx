@@ -1,11 +1,13 @@
 import Link from "next/link";
 import React from "react";
 import LinkButton from "./Link";
+import { FaShoppingCart } from "react-icons/fa";
 
 function Navbar() {
   const links = [
     { name: "Home", href: "/" },
     { name: "Products", href: "/products" },
+    { name: "My Profile", href: "/profile" },
   ];
   return (
     <div className="navbar bg-base-100 shadow-sm">
@@ -48,8 +50,14 @@ function Navbar() {
           ))}
         </ul>
       </div>
-      <div className="navbar-end">
-        <Link href={"/signin"} className="btn">
+      <div className="navbar-end space-x-4">
+        <Link href={"/cart"} className="hover:btn py-1 px-2 ">
+          <FaShoppingCart />
+        </Link>
+        <Link
+          href={"/signin"}
+          className=" text-gray-50 btn rounded-md bg-[#1e8d8d]"
+        >
           SignIn
         </Link>
       </div>
