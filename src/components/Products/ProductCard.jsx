@@ -4,6 +4,9 @@ import { BiCartAdd } from "react-icons/bi";
 import { CgEye } from "react-icons/cg";
 
 function ProductCard({ data }) {
+  // console.log(data);
+  const categorySlug = data.category.toLowerCase().replace(/\s+/g, "-");
+  // return data;
   return (
     <div className="border border-gray-100 hover:border-[#1e8d8d] rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:shadow-cyan-100 transition-shadow duration-300 bg-white flex flex-col w-full max-w-55">
       {/* Image */}
@@ -19,7 +22,7 @@ function ProductCard({ data }) {
       {/* Action Buttons */}
       <div className="flex items-center border-t border-gray-100">
         <Link
-          href={`/products/${data.id}`}
+          href={`/products/${categorySlug}/${data.id}`}
           className="flex items-center justify-center bg-gray-50 hover:bg-[#1e8d8d] hover:text-white text-gray-500 transition-colors duration-200 py-2.5 w-full border-r border-gray-100"
         >
           <CgEye size={18} />
