@@ -8,7 +8,8 @@
     "stock": 20,
     "description": "Lightweight and quick-dry short pants, perfect for beach and pool days.",
     "image": "https://www.shutterstock.com/image-photo/folded-green-mens-shorts-red-600w-2582170573.jpg",
-    "category": "Menswear"
+    "category": "Menswear",
+    "isPopular": true
   },
   {
     "id": 2,
@@ -19,7 +20,8 @@
     "stock": 50,
     "description": "100% organic cotton t-shirt with a relaxed fit for hot summer days.",
     "image": "https://thumbs.dreamstime.com/z/cotton-t-shirt-gray-background-flat-lay-top-view-studio-shot-309995658.jpg?ct=jpeg",
-    "category": "Menswear"
+    "category": "Menswear",
+    "isPopular": true
   },
   {
     "id": 3,
@@ -30,7 +32,8 @@
     "stock": 35,
     "description": "Stylish graphic tee made with breathable fabric to keep you cool.",
     "image": "https://img01.ztat.net/article/spp-media-p1/bcc8517a8954451aad5375906ca021ad/48dafcbb74ac4c8fa4b734e35ce591fc.jpg?imwidth=1800&filter=packshot",
-    "category": "Menswear"
+    "category": "Menswear",
+    "isPopular": false
   },
   {
     "id": 4,
@@ -41,7 +44,8 @@
     "stock": 15,
     "description": "Premium polarized aviators with complete UV400 protection.",
     "image": "https://florentineeyewear.com.au/cdn/shop/files/Artboard_2_3fcd6bd3-4781-485a-a64d-bf65e791c681.jpg?v=1614362876",
-    "category": "Accessories"
+    "category": "Accessories",
+    "isPopular": true
   },
   {
     "id": 5,
@@ -52,7 +56,8 @@
     "stock": 25,
     "description": "Trendy matte finish sunglasses designed for daily summer outdoor use.",
     "image": "https://ihfiles.com/products/526/59812/p/5/1509397.jpeg",
-    "category": "Accessories"
+    "category": "Accessories",
+    "isPopular": false
   },
   {
     "id": 6,
@@ -63,7 +68,8 @@
     "stock": 12,
     "description": "Lightweight full-length cotton pants designed for professional summer wear.",
     "image": "https://img01.ztat.net/article/spp-media-p1/a92caea54d34442096ef7db16b62ac29/50cbdf6b559a440a9d7fc0ada81d577c.jpg?imwidth=1800&filter=packshot",
-    "category": "Menswear"
+    "category": "Menswear",
+    "isPopular": false
   },
   {
     "id": 7,
@@ -74,7 +80,8 @@
     "stock": 10,
     "description": "Eco-friendly linen pants that offer maximum air circulation and comfort.",
     "image": "https://m.media-amazon.com/images/I/71HE8MDoxVL._AC_SX569_.jpg",
-    "category": "Menswear"
+    "category": "Menswear",
+    "isPopular": true
   },
   {
     "id": 8,
@@ -85,7 +92,8 @@
     "stock": 22,
     "description": "Vibrant tropical patterns on a soft cotton-rayon blend summer shirt.",
     "image": "https://i.etsystatic.com/23523064/r/il/4e7fcd/4745235216/il_1140xN.4745235216_kls6.jpg",
-    "category": "Menswear"
+    "category": "Menswear",
+    "isPopular": true
   },
   {
     "id": 9,
@@ -96,7 +104,8 @@
     "stock": 18,
     "description": "Premium white linen shirt with a modern collar for a clean summer look.",
     "image": "https://johnwatson.in/cdn/shop/products/october0866.jpg?v=1665782102&width=700",
-    "category": "Menswear"
+    "category": "Menswear",
+    "isPopular": true
   },
   {
     "id": 10,
@@ -107,7 +116,8 @@
     "stock": 15,
     "description": "Lightweight denim-look shirt made from soft, breathable summer cotton.",
     "image": "https://rasanasa.com/public/uploads/all/xhC2dEgsqFVNbqi850Xi5hVi42D2B1QRS9ftfNsm.jpg",
-    "category": "Menswear"
+    "category": "Menswear",
+    "isPopular": false
   },
   {
     "id": 11,
@@ -118,7 +128,8 @@
     "stock": 40,
     "description": "Non-greasy sun cream providing long-lasting protection against UVA/UVB rays.",
     "image": "https://fairskincarebd.com/wp-content/uploads/2023/09/Valencia-Gio-Nature-Plus-Sun-Block-SPF50-Collagen-Sun-Cream.jpg",
-    "category": "Skincare"
+    "category": "Skincare",
+    "isPopular": true
   },
   {
     "id": 12,
@@ -129,7 +140,8 @@
     "stock": 30,
     "description": "Moisturizing sunscreen gel with aloe vera extracts for a cooling effect.",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1PYNOsNf-d00T_HvJcfIQitoYg1KHj-Z5Ew&s",
-    "category": "Skincare"
+    "category": "Skincare",
+    "isPopular": false
   },
   {
     "id": 13,
@@ -140,7 +152,8 @@
     "stock": 25,
     "description": "Lightweight cotton orna with elegant floral block prints for summer.",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk6jkTekv_hPvisDib0SEBYM3ojGx82tcwfw&s",
-    "category": "Womenswear"
+    "category": "Womenswear",
+    "isPopular": true
   },
   {
     "id": 14,
@@ -151,17 +164,19 @@
     "stock": 20,
     "description": "High-quality soft chiffon dupatta, perfect for pairing with summer outfits.",
     "image": "https://static-01.daraz.com.bd/p/9029d2f3a5d769393c00e013e143d558.jpg",
-    "category": "Womenswear"
+    "category": "Womenswear",
+    "isPopular": false
   },
   {
     "id": 15,
-    "name": "Women's  Summer Cotton T-Shirt",
+    "name": "Women's Summer Cotton T-Shirt",
     "brand": "ActiveLady",
     "price": 15,
     "rating": 4.6,
     "stock": 30,
     "description": "Comfortable V-neck tee made from moisture-wicking stretchable cotton.",
     "image": "https://media.4rgos.it/s/Argos/tuc147615317_R_SET/1?w=540&h=732&qlt=75&fmt=webp",
-    "category": "Womenswear"
+    "category": "Womenswear",
+    "isPopular": true
   }
 ]

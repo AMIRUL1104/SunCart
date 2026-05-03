@@ -1,6 +1,6 @@
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
-function StarRating({ rating }) {
+function StarRating({ rating, isTextRate }) {
   return (
     <div className="flex items-center gap-1">
       {[1, 2, 3, 4, 5].map((star) => (
@@ -14,8 +14,10 @@ function StarRating({ rating }) {
           )}
         </span>
       ))}
-      <span className="text-sm text-gray-500 ml-1">{rating} / 5.0</span>
+      {isTextRate && (
+        <span className="text-sm text-gray-500 ml-1">{rating} / 5.0</span>
+      )}
     </div>
   );
 }
-export default StarRating
+export default StarRating;

@@ -3,7 +3,6 @@ import ProductCard from "./ProductCard";
 
 async function Products() {
   const ProductsData = await getData();
-  console.log(ProductsData);
 
   return (
     <section className="container mx-auto px-4 py-8">

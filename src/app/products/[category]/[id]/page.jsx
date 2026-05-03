@@ -5,9 +5,11 @@ import getData from "@/app/lib/getData";
 import StarRating from "@/components/ProDetails/StarRating";
 import Quantity from "@/components/ProDetails/Quantity";
 import Link from "next/link";
+import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
 
 export default async function ProductDetails({ params }) {
   const { category, id } = await params;
+  // console.log(category);
 
   const products = await getData();
   const data = products.find((product) => product.id == id);
@@ -40,7 +42,7 @@ export default async function ProductDetails({ params }) {
           </Link>
           <span>›</span>
           <Link
-            href={`/products/${data.category.toLowerCase()}`}
+            href={`/products/${category}`}
             className="hover:text-[#1e8d8d] cursor-pointer"
           >
             {data.category}
@@ -85,7 +87,7 @@ export default async function ProductDetails({ params }) {
               </div>
 
               {/* Rating */}
-              <StarRating rating={data.rating} />
+              <StarRating rating={data.rating} isTextRate={true} />
 
               {/* Price */}
               <div className="text-3xl font-bold text-[#1e8d8d]">
@@ -150,6 +152,8 @@ export default async function ProductDetails({ params }) {
           </div>
         </div>
       </div>
+
+      <RelatedProducts category={category} />
     </div>
   );
 }

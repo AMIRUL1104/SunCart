@@ -2,11 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { BiCartAdd } from "react-icons/bi";
 import { CgEye } from "react-icons/cg";
+import StarRating from "../ProDetails/StarRating";
 
 function ProductCard({ data }) {
-  // console.log(data);
   const categorySlug = data.category.toLowerCase().replace(/\s+/g, "-");
-  // return data;
   return (
     <div className="border border-gray-100 hover:border-[#1e8d8d] rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:shadow-cyan-100 transition-shadow duration-300 bg-white flex flex-col w-full max-w-55">
       {/* Image */}
@@ -38,7 +37,14 @@ function ProductCard({ data }) {
         <p className="text-[13px] font-medium text-gray-700 leading-snug line-clamp-2">
           {data.name}
         </p>
-        <h3 className="text-lg font-bold text-[#1e8d8d] mt-1">${data.price}</h3>
+
+        <div className=" flex items-center justify-between">
+          <h3 className="text-lg font-bold text-[#1e8d8d] mt-1">
+            ${data.price}
+          </h3>
+          {/* Rating */}
+          <StarRating rating={data.rating} isTextRate={false} />
+        </div>
       </div>
     </div>
   );
