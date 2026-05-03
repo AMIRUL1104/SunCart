@@ -9,7 +9,6 @@ import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
 
 export default async function ProductDetails({ params }) {
   const { category, id } = await params;
-  // console.log(category);
 
   const products = await getData();
   const data = products.find((product) => product.id == id);

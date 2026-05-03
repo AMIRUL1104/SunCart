@@ -1,8 +1,9 @@
 "use client";
 
+import { CartContext } from "@/context/CartContest";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
 
 const links = [
@@ -14,6 +15,7 @@ const links = [
 function Navbar() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { CartData } = useContext(CartContext);
 
   return (
     <nav className="w-full relative overflow-hidden border-b border-white/7 z-50">
@@ -71,7 +73,7 @@ function Navbar() {
             <span className="hidden sm:inline">Cart</span>
             {/* Badge */}
             <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-[#1e8d8d] text-white text-[9px] font-bold flex items-center justify-center border-2 border-[#0a2823]">
-              3
+              {CartData.length}
             </span>
           </Link>
 

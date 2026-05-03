@@ -20,7 +20,7 @@ const socialLinks = [
 
 function Footer() {
   return (
-    <footer className="relative w-full mt-16 overflow-hidden">
+    <footer className="relative w-full  overflow-hidden">
       {/* Background Image + Dark Overlay */}
       <div className="absolute inset-0 -z-10">
         <Image

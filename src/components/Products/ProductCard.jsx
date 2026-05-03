@@ -7,17 +7,12 @@ import { CgEye } from "react-icons/cg";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useState } from "react";
 import StarRating from "../ProDetails/StarRating";
+import AddCartBtn from "./AddCartBtn";
 
 function ProductCard({ data }) {
   const [wishlisted, setWishlisted] = useState(false);
-  const [addedToCart, setAddedToCart] = useState(false);
 
   const categorySlug = data.category.toLowerCase().replace(/\s+/g, "-");
-
-  const handleCart = () => {
-    setAddedToCart(true);
-    setTimeout(() => setAddedToCart(false), 1800);
-  };
 
   return (
     <div className="group relative bg-white rounded-2xl overflow-hidden flex flex-col w-full max-w-55 border border-gray-100 hover:border-[#1e8d8d]/40 shadow-sm hover:shadow-xl hover:shadow-cyan-100/60 transition-all duration-300 hover:-translate-y-1">
@@ -59,17 +54,7 @@ function ProductCard({ data }) {
             <span>View</span>
           </Link>
 
-          <button
-            onClick={handleCart}
-            className={`flex items-center justify-center gap-1.5 backdrop-blur-sm text-white text-xs font-medium py-2.5 w-full transition-all duration-200 ${
-              addedToCart
-                ? "bg-green-500"
-                : "bg-[#1e8d8d]/90 hover:bg-[#1e8d8d]"
-            }`}
-          >
-            <BiCartAdd size={15} />
-            <span>{addedToCart ? "Added!" : "Add"}</span>
-          </button>
+          <AddCartBtn id={data.id} />
         </div>
       </div>
 
