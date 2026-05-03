@@ -1,70 +1,125 @@
+"use client";
+
 import Link from "next/link";
-import React from "react";
-import LinkButton from "./Link";
-import { FaShoppingCart } from "react-icons/fa";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
+
+const links = [
+  { name: "Home", href: "/" },
+  { name: "Products", href: "/products" },
+  { name: "My Profile", href: "/profile" },
+];
 
 function Navbar() {
-  const links = [
-    { name: "Home", href: "/" },
-    { name: "Products", href: "/products" },
-    { name: "My Profile", href: "/profile" },
-  ];
+  const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className="navbar bg-base-100 shadow-sm">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {" "}
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
-            </svg>
+    <nav className="w-full relative overflow-hidden border-b border-white/7 z-50">
+      {/* Dark green background — same family as footer */}
+      <div className="absolute inset-0 bg-linear-to-r from-[#0a2823]/97 via-[#083c30]/98 to-[#05322a]/99 -z-10" />
+
+      {/* Ambient glows */}
+      <div className="absolute top-0 left-[5%] w-56 h-20 rounded-full bg-[#1e8d8d]/18 blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-[8%] w-44 h-16 rounded-full bg-emerald-400/10 blur-3xl pointer-events-none" />
+
+      {/* ── Desktop Bar ── */}
+      <div className="flex items-center justify-between px-5 sm:px-8 py-3">
+        {/* Brand */}
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <div className="w-8 h-8 bg-[#1e8d8d] rounded-lg flex items-center justify-center shadow-md shadow-[#1e8d8d]/35 shrink-0">
+            <FiShoppingCart size={15} className="text-white" />
           </div>
-          <ul
-            tabIndex="-1"
-            className="menu menu-sm dropdown-content space-y-4 bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-          >
-            {links.map((link) => (
-              <LinkButton key={link.name} link={link}></LinkButton>
-            ))}
-          </ul>
-        </div>
-        <Link
-          href={"/"}
-          className="btn btn-ghost text-2xl font-extrabold text-[#1e8d8d]"
-        >
-          SunCart
+          <span className="text-lg font-extrabold tracking-tight text-white">
+            Sun<span className="text-emerald-400">Cart</span>
+          </span>
         </Link>
-      </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 space-x-4">
-          {links.map((link) => (
-            <LinkButton key={link.name} link={link}></LinkButton>
-          ))}
+
+        {/* Desktop Links */}
+        <ul className="hidden lg:flex items-center gap-1">
+          {links.map((link, i) => {
+            const isActive = pathname === link.href;
+            return (
+              <li key={link.name} className="flex items-center gap-1">
+                {i > 0 && (
+                  <span className="w-0.75 h-0.75 rounded-full bg-white/20 mx-1" />
+                )}
+                <Link
+                  href={link.href}
+                  className={`text-sm font-medium px-3.5 py-2 rounded-lg transition-all duration-200 ${
+                    isActive
+                      ? "text-emerald-400 bg-emerald-400/10"
+                      : "text-white/55 hover:text-white hover:bg-white/7"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
+
+        {/* Right Actions */}
+        <div className="flex items-center gap-2">
+          {/* Cart */}
+          <Link
+            href="/cart"
+            className="relative flex items-center gap-2 px-3.5 py-2 rounded-lg border border-white/12 bg-white/6 text-white/70 hover:text-white hover:bg-white/12 hover:border-white/20 transition-all duration-200 text-sm font-medium"
+          >
+            <FiShoppingCart size={15} />
+            <span className="hidden sm:inline">Cart</span>
+            {/* Badge */}
+            <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-[#1e8d8d] text-white text-[9px] font-bold flex items-center justify-center border-2 border-[#0a2823]">
+              3
+            </span>
+          </Link>
+
+          {/* Sign In */}
+          <Link
+            href="/signin"
+            className="px-4 py-2 rounded-lg bg-linear-to-r from-[#1e8d8d] to-emerald-500 text-white text-sm font-semibold shadow-md shadow-[#1e8d8d]/30 hover:shadow-lg hover:shadow-[#1e8d8d]/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+          >
+            Sign In
+          </Link>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="lg:hidden ml-1 w-9 h-9 flex items-center justify-center rounded-lg border border-white/12 bg-white/6 text-white/70 hover:text-white hover:bg-white/12 transition-all duration-200"
+          >
+            {menuOpen ? <FiX size={17} /> : <FiMenu size={17} />}
+          </button>
+        </div>
       </div>
-      <div className="navbar-end space-x-4">
-        <Link href={"/cart"} className="btn  py-1 px-2 ">
-          <FaShoppingCart /> cart
-        </Link>
-        <Link
-          href={"/signin"}
-          className=" text-gray-50 btn rounded-md bg-[#1e8d8d]"
-        >
-          SignIn
-        </Link>
+
+      {/* ── Mobile Dropdown Menu ── */}
+      <div
+        className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          menuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="border-t border-white/8 px-5 py-3 flex flex-col gap-1">
+          {links.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className={`text-sm font-medium px-4 py-2.5 rounded-lg transition-all duration-200 ${
+                  isActive
+                    ? "text-emerald-400 bg-emerald-400/10"
+                    : "text-white/55 hover:text-white hover:bg-white/7"
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </nav>
   );
 }
 

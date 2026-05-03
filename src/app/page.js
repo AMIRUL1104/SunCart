@@ -2,9 +2,8 @@ import Banner from "@/components/Home/Banner/Banner";
 import PopularProducts from "@/components/Home/PopularProduct/PopularProducts";
 import CategoryCards from "@/components/Home/ProductCategory/CategoryCards";
 import ProductCard from "@/components/Products/ProductCard";
-
-import Image from "next/image";
 import getData from "./lib/getData";
+import TopBrands from "@/components/Home/TopBrands/TopBrands";
 
 export default async function Home() {
   const ProductsData = await getData();
@@ -15,6 +14,8 @@ export default async function Home() {
         <CategoryCards />
         <PopularProducts />
 
+        <TopBrands />
+        {/* more products section */}
         <section className="container mx-auto px-4 py-8">
           <h1 className="text-xl font-semibold text-gray-800 leading-snug mb-4 sm:ml-2.5">
             More Products

@@ -1,9 +1,11 @@
 import getData from "@/app/lib/getData";
-import PopularProductsClient from "./PopularProductsClient";
+import OneRowProducts from "@/components/Shared/OneRowProducts";
 
 async function PopularProducts() {
   const ProductsData = await getData();
-  return <PopularProductsClient products={ProductsData} />;
+  const data = ProductsData.filter((product) => product.isPopular === true);
+
+  return <OneRowProducts title={"🔥 Popular Products"} products={data} />;
 }
 
 export default PopularProducts;
