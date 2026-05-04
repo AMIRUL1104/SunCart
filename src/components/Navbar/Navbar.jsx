@@ -1,6 +1,8 @@
 "use client";
 
 import { CartContext } from "@/context/CartContest";
+import { authClient } from "@/lib/auth-client";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useContext, useState } from "react";
@@ -16,6 +18,10 @@ function Navbar() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const { CartData } = useContext(CartContext);
+
+  // login sesion  info
+  const { data: session, isPending } = authClient.useSession();
+  const userInfo = session?.user;
 
   return (
     <nav className="w-full relative overflow-hidden border-b border-white/7 z-50">
@@ -78,12 +84,50 @@ function Navbar() {
           </Link>
 
           {/* Sign In */}
-          <Link
+          {/* <Link
             href="/signin"
             className="px-4 py-2 rounded-lg bg-linear-to-r from-[#1e8d8d] to-emerald-500 text-white text-sm font-semibold shadow-md shadow-[#1e8d8d]/30 hover:shadow-lg hover:shadow-[#1e8d8d]/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
           >
             Sign In
           </Link>
+
+           <button
+              onClick={async () => await authClient.signOut()}
+         className="px-4 py-2 rounded-lg bg-linear-to-r from-[#1e8d8d] to-emerald-500 text-white text-sm font-semibold shadow-md shadow-[#1e8d8d]/30 hover:shadow-lg hover:shadow-[#1e8d8d]/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+            >
+              Sign out
+            </button> */}
+
+          {isPending ? (
+            <span className="loading loading-dots loading-lg"></span>
+          ) : userInfo ? (
+            <div className="flex items-center justify-between gap-4 ">
+              <Link href={"/profile"}>
+                <Image
+                  src={userInfo.image || user}
+                  alt="user"
+                  width={30}
+                  height={30}
+                  className=" rounded-full"
+                />
+              </Link>
+              <button
+                onClick={async () => await authClient.signOut()}
+                className="px-4 py-2 rounded-lg bg-linear-to-r from-[#1e8d8d] to-emerald-500 text-white text-sm font-semibold shadow-md shadow-[#1e8d8d]/30 hover:shadow-lg hover:shadow-[#1e8d8d]/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+              >
+                Sign out
+              </button>
+            </div>
+          ) : (
+            <div className="flex items-center justify-between gap-4 ">
+              <Link
+                href="/signin"
+                className="px-4 py-2 rounded-lg bg-linear-to-r from-[#1e8d8d] to-emerald-500 text-white text-sm font-semibold shadow-md shadow-[#1e8d8d]/30 hover:shadow-lg hover:shadow-[#1e8d8d]/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+              >
+                Sign In
+              </Link>
+            </div>
+          )}
 
           {/* Mobile hamburger */}
           <button

@@ -211,6 +211,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { FiShoppingCart } from "react-icons/fi";
+import { authClient } from "@/lib/auth-client";
 
 export default function LoginPage() {
   const [showPass, setShowPass] = useState(false);
@@ -222,16 +223,38 @@ export default function LoginPage() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (userdata) => {
     setLoading(true);
     setTimeout(() => setLoading(false), 2000);
-    console.log(data);
+
+    // signin with email
+    let { email, password } = userdata;
+    const { data, error } = await authClient.signIn.email({
+      email: email, // required
+      password: password, // required
+
+      callbackURL: "/",
+    });
+
+    if (data) {
+      alert("signin successful");
+      console.log(data.user);
+    }
+    if (error) {
+      alert(error.message);
+      console.log(error.message);
+    }
   };
 
+  const handlegooglesignin = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+  };
   return (
     <main className="min-h-screen grid md:grid-cols-2">
       {/* ── Left Panel ── */}
-      <div className="relative hidden md:flex flex-col items-center justify-center px-10 bg-gradient-to-br from-green-100 via-emerald-100 to-cyan-300/50 overflow-hidden">
+      <div className="relative hidden md:flex flex-col items-center justify-center px-10 bg-linear-to-br from-green-100 via-emerald-100 to-cyan-300/50 overflow-hidden">
         <div className="absolute -top-16 -left-16 w-64 h-64 rounded-full bg-[#1e8d8d]/20 blur-2xl" />
         <div className="absolute -bottom-12 -right-12 w-56 h-56 rounded-full bg-emerald-400/20 blur-2xl" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-cyan-300/20 blur-2xl" />
@@ -354,7 +377,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-[#1e8d8d] to-emerald-500 text-white text-sm font-semibold shadow-md shadow-[#1e8d8d]/25 hover:shadow-lg hover:shadow-[#1e8d8d]/30 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed"
+              className="w-full py-3 rounded-xl bg-linear-to-r from-[#1e8d8d] to-emerald-500 text-white text-sm font-semibold shadow-md shadow-[#1e8d8d]/25 hover:shadow-lg hover:shadow-[#1e8d8d]/30 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <span className="flex items-center justify-center gap-2">
@@ -393,7 +416,10 @@ export default function LoginPage() {
           </div>
 
           {/* Google */}
-          <button className="w-full flex items-center justify-center gap-2.5 py-2.5 rounded-xl border border-gray-200 bg-white hover:bg-green-50 hover:border-[#1e8d8d]/40 text-sm font-medium text-gray-600 transition-all duration-200 group">
+          <button
+            onClick={handlegooglesignin}
+            className="w-full flex items-center justify-center gap-2.5 py-2.5 rounded-xl border border-gray-200 bg-white hover:bg-green-50 hover:border-[#1e8d8d]/40 text-sm font-medium text-gray-600 transition-all duration-200 group"
+          >
             <svg viewBox="0 0 24 24" className="w-5 h-5">
               <path
                 fill="#4285F4"
