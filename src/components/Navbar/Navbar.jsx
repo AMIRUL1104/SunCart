@@ -84,20 +84,6 @@ function Navbar() {
           </Link>
 
           {/* Sign In */}
-          {/* <Link
-            href="/signin"
-            className="px-4 py-2 rounded-lg bg-linear-to-r from-[#1e8d8d] to-emerald-500 text-white text-sm font-semibold shadow-md shadow-[#1e8d8d]/30 hover:shadow-lg hover:shadow-[#1e8d8d]/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
-          >
-            Sign In
-          </Link>
-
-           <button
-              onClick={async () => await authClient.signOut()}
-         className="px-4 py-2 rounded-lg bg-linear-to-r from-[#1e8d8d] to-emerald-500 text-white text-sm font-semibold shadow-md shadow-[#1e8d8d]/30 hover:shadow-lg hover:shadow-[#1e8d8d]/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
-            >
-              Sign out
-            </button> */}
-
           {isPending ? (
             <span className="loading loading-dots loading-lg"></span>
           ) : userInfo ? (

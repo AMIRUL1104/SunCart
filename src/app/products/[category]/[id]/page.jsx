@@ -6,6 +6,7 @@ import StarRating from "@/components/ProDetails/StarRating";
 import Quantity from "@/components/ProDetails/Quantity";
 import Link from "next/link";
 import RelatedProducts from "@/components/RelatedProducts/RelatedProducts";
+import AddCartBtn from "@/components/Products/AddCartBtn";
 
 export default async function ProductDetails({ params }) {
   const { category, id } = await params;
@@ -112,10 +113,7 @@ export default async function ProductDetails({ params }) {
 
               {/* Buttons */}
               <div className="flex gap-3">
-                <button className="flex-1 flex items-center justify-center gap-2 py-2.5 border-2 border-[#1e8d8d] text-[#1e8d8d] rounded-xl text-sm font-medium hover:bg-[#e1f5ee] transition-colors duration-200">
-                  <BiCartAdd size={18} />
-                  Add to Cart
-                </button>
+                <AddCartBtn id={data.id} detailPage={true} />
                 <button className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-[#1e8d8d] text-white rounded-xl text-sm font-medium hover:bg-[#176f6f] transition-colors duration-200">
                   <BsBagCheck size={16} />
                   Buy Now

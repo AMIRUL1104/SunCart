@@ -54,7 +54,7 @@ function ProductCard({ data }) {
             <span>View</span>
           </Link>
 
-          <AddCartBtn id={data.id} />
+          <AddCartBtn id={data.id} detailPage={false} />
         </div>
       </div>
 
