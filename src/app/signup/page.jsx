@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { FiShoppingCart, FiCheck } from "react-icons/fi";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { authClient } from "../../lib/auth-client";
 
 const perks = [
   "Exclusive member-only discounts",
@@ -41,13 +42,37 @@ export default function RegisterPage() {
     register,
     handleSubmit,
     getValues,
+    // watch,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (userdata) => {
+  const onSubmit = async (userdata) => {
     setLoading(true);
     setTimeout(() => setLoading(false), 2000);
     console.log(userdata);
+
+    // user data
+    let { name, email, password, photoURL, phone, terms } = userdata;
+
+    // email and password register
+    const { data, error } = await authClient.signUp.email({
+      name: name, // required
+      email: email, // required
+      password: password, // required
+      image: photoURL,
+      phone: phone,
+      terms: terms,
+      callbackURL: "/signin",
+    });
+
+    if (data) {
+      alert("signup successful");
+      console.log(data.user);
+    }
+    if (error) {
+      alert(error.message);
+      console.log(error.message);
+    }
   };
 
   return (
@@ -142,6 +167,45 @@ export default function RegisterPage() {
               {errors.phone && (
                 <span className="text-red-500 text-xs mt-1 block">
                   {errors.phone.message}
+                </span>
+              )}
+            </div>
+
+            {/* Image URL */}
+            <div>
+              <label className="block text-xs font-semibold text-gray-600 uppercase tracking-wide mb-1.5">
+                Image URL
+              </label>
+              <div className="relative">
+                <input
+                  type="url"
+                  {...register("photoURL", {
+                    required: "Image URL is required",
+                    pattern: {
+                      value:
+                        /^https?:\/\/.+\.(jpg|jpeg|png|gif|webp|svg)(\?.*)?$/i,
+                      message: "Enter a valid image URL",
+                    },
+                  })}
+                  placeholder="https://example.com/photo.jpg"
+                  className="w-full px-3.5 py-2.5 pr-12 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#1e8d8d] focus:ring-2 focus:ring-[#1e8d8d]/15 focus:bg-white transition-all duration-200"
+                />
+                {/* Live preview thumbnail
+    {watch("photoURL") && (
+      <img
+        src={watch("photoURL")}
+        alt="preview"
+        className="absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full object-cover border border-gray-200"
+        onError={(e) => (e.target.style.display = "none")}
+      />
+    )} */}
+              </div>
+              <p className="text-xs text-gray-400 mt-1">
+                Profile picture URL (optional)
+              </p>
+              {errors.photoURL && (
+                <span className="text-red-500 text-xs mt-1 block">
+                  {errors.photoURL.message}
                 </span>
               )}
             </div>

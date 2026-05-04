@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { BiCartAdd } from "react-icons/bi";
 import { BsBagCheck } from "react-icons/bs";
-import getData from "@/app/lib/getData";
+import getData from "@/lib/getData";
 import StarRating from "@/components/ProDetails/StarRating";
 import Quantity from "@/components/ProDetails/Quantity";
 import Link from "next/link";

@@ -2,7 +2,7 @@ import Banner from "@/components/Home/Banner/Banner";
 import PopularProducts from "@/components/Home/PopularProduct/PopularProducts";
 import CategoryCards from "@/components/Home/ProductCategory/CategoryCards";
 import ProductCard from "@/components/Products/ProductCard";
-import getData from "./lib/getData";
+import getData from "../lib/getData";
 import TopBrands from "@/components/Home/TopBrands/TopBrands";
 
 export default async function Home() {

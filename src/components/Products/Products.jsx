@@ -1,4 +1,4 @@
-import getData from "@/app/lib/getData";
+import getData from "@/lib/getData";
 import ProductCard from "./ProductCard";
 
 async function Products() {

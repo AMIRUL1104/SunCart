@@ -1,5 +1,5 @@
 import Link from "next/link";
-import getData from "@/app/lib/getData";
+import getData from "@/lib/getData";
 import ProductCard from "@/components/Products/ProductCard";
 
 async function CategoryPage({ params }) {

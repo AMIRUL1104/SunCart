@@ -1,4 +1,4 @@
-import getData from "@/app/lib/getData";
+import getData from "@/lib/getData";
 import OneRowProducts from "@/components/Shared/OneRowProducts";
 
 async function PopularProducts() {

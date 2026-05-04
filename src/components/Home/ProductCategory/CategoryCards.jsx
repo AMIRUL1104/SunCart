@@ -1,4 +1,4 @@
-import getCategories from "@/app/lib/getCategory";
+import getCategories from "@/lib/getCategory";
 import Image from "next/image";
 import Link from "next/link";
 function CatetagoryCards() {
