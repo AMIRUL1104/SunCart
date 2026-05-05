@@ -17,8 +17,6 @@ export default async function ProfilePage() {
   });
 
   const userInfo = session.user;
-  console.log(userInfo);
-
   return (
     <section className="min-h-screen bg-linear-to-br from-green-50/60 via-white to-cyan-50/40 py-10 px-4 sm:px-6">
       <div className="container mx-auto max-w-2xl">
@@ -27,10 +25,10 @@ export default async function ProfilePage() {
           {/* Banner strip */}
           <div className="h-28 bg-linear-to-r from-green-200/60 via-emerald-100 to-cyan-200/50 relative">
             <div
-              className="absolute inset-0 opacity-300"
+              className="absolute inset-0 opacity-30"
               style={{
                 backgroundImage:
-                  "radial-linear(circle at 20% 50%, #1e8d8d 1px, transparent 1px), radial-linear(circle at 80% 30%, #0e9f6e 1px, transparent 1px)",
+                  "radial-gradient(circle at 20% 50%, #1e8d8d 1px, transparent 1px), radial-gradient(circle at 80% 30%, #0e9f6e 1px, transparent 1px)",
                 backgroundSize: "40px 40px",
               }}
             />
@@ -39,9 +37,10 @@ export default async function ProfilePage() {
             </div>
           </div>
 
-          {/* Avatar */}
-          <div className="flex col items-center justify-evenly -mt-14 pb-6 px-6">
-            <div className="relative">
+          {/* Avatar + Info*/}
+          <div className="flex flex-col items-center -mt-14 pb-7 px-6">
+            {/* Avatar */}
+            <div className="relative z-10">
               <div className="w-28 h-28 rounded-full ring-4 ring-white shadow-lg overflow-hidden bg-linear-to-br from-emerald-100 to-cyan-100">
                 <Image
                   src={userInfo.image}
@@ -51,27 +50,29 @@ export default async function ProfilePage() {
                   className="object-cover w-full h-full"
                 />
               </div>
-              {/* Online dot */}
               <span className="absolute bottom-1.5 right-1.5 w-4 h-4 rounded-full bg-emerald-400 border-2 border-white shadow-sm" />
             </div>
 
-            <h1 className="mt-3  text-xl font-bold text-gray-900">
+            {/* Name */}
+            <h1 className="mt-3 text-xl font-bold text-gray-900 text-center">
               {userInfo.name}
             </h1>
-            <p className="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
-              <FiMapPin size={11} /> {userInfo?.location || "Bangladesh"}
+
+            {/* Location */}
+            <p className="text-xs text-gray-400 mt-1 flex items-center gap-1">
+              <FiMapPin size={11} />
+              {userInfo?.location || "Bangladesh"}
             </p>
 
-            {/* Quick stat */}
+            {/* Orders badge */}
             <div className="mt-4 flex items-center gap-2 bg-[#1e8d8d]/6 border border-[#1e8d8d]/15 rounded-full px-4 py-1.5">
               <FiShoppingBag size={13} className="text-[#1e8d8d]" />
               <span className="text-xs font-semibold text-[#1e8d8d]">
-                0 order placed
+                0 orders placed
               </span>
             </div>
           </div>
         </div>
-
         {/* Info Card */}
         <div className="mt-4 bg-white rounded-3xl border border-gray-100 shadow-sm px-6 py-5 space-y-4">
           <h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400">
