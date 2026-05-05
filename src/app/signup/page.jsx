@@ -67,11 +67,9 @@ export default function RegisterPage() {
 
     if (data) {
       alert("signup successful");
-      console.log(data.user);
     }
     if (error) {
       alert(error.message);
-      console.log(error.message);
     }
   };
 

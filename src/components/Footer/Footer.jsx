@@ -27,8 +27,9 @@ function Footer() {
           src={footerbg}
           alt="footer background"
           fill
+          sizes="1500px"
           className="object-cover object-center"
-          quality={90}
+          quality={70}
         />
         {/* Dark green gradient overlay */}
         <div className="absolute inset-0 bg-linear-to-b from-[#0a2823]/82 via-[#083228]/93 to-[#051e19]/97" />

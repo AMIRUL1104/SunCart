@@ -1,17 +1,5 @@
-// import { auth } from "@/lib/auth";
-// import { headers } from "next/headers";
-
-// async function ProfilePage() {
-//   const session = await auth.api.getSession({
-//     headers: await headers(),
-//   });
-//   console.log(session.user);
-
-//   return <div>ProfilePage</div>;
-// }
-
-// export default ProfilePage;
-
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -23,15 +11,14 @@ import {
 } from "react-icons/fi";
 import { HiOutlineSparkles } from "react-icons/hi";
 
-const userInfo = {
-  name: "Rahim Khan",
-  email: "rahim@example.com",
-  photo: "https://i.pravatar.cc/300?img=12",
-  location: "Dhaka, Bangladesh",
-  totalOrders: 14,
-};
+export default async function ProfilePage() {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
 
-export default function ProfilePage() {
+  const userInfo = session.user;
+  console.log(userInfo);
+
   return (
     <section className="min-h-screen bg-linear-to-br from-green-50/60 via-white to-cyan-50/40 py-10 px-4 sm:px-6">
       <div className="container mx-auto max-w-2xl">
@@ -57,7 +44,7 @@ export default function ProfilePage() {
             <div className="relative">
               <div className="w-28 h-28 rounded-full ring-4 ring-white shadow-lg overflow-hidden bg-linear-to-br from-emerald-100 to-cyan-100">
                 <Image
-                  src={userInfo.photo}
+                  src={userInfo.image}
                   alt={userInfo.name}
                   width={112}
                   height={112}
@@ -72,14 +59,14 @@ export default function ProfilePage() {
               {userInfo.name}
             </h1>
             <p className="text-xs text-gray-400 mt-0.5 flex items-center gap-1">
-              <FiMapPin size={11} /> {userInfo.location}
+              <FiMapPin size={11} /> {userInfo?.location || "Bangladesh"}
             </p>
 
             {/* Quick stat */}
             <div className="mt-4 flex items-center gap-2 bg-[#1e8d8d]/6 border border-[#1e8d8d]/15 rounded-full px-4 py-1.5">
               <FiShoppingBag size={13} className="text-[#1e8d8d]" />
               <span className="text-xs font-semibold text-[#1e8d8d]">
-                {userInfo.totalOrders} orders placed
+                0 order placed
               </span>
             </div>
           </div>

@@ -41,6 +41,7 @@ function ProductCard({ data }) {
           src={data.image}
           alt={data.name}
           fill
+          sizes="300px"
           className="object-contain p-4 transition-transform duration-500 group-hover:scale-110"
         />
 
