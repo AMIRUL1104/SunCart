@@ -38,7 +38,7 @@ export default function TopBrands() {
           <p className="text-xs font-semibold uppercase tracking-widest text-[#1e8d8d] mb-1">
             Featured
           </p>
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+          <h2 className="animate__fadeInDown text-2xl md:text-3xl font-bold text-gray-800">
             🏆 Top Brands
           </h2>
         </div>

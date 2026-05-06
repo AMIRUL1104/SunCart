@@ -3,6 +3,7 @@
 import { CartContext } from "@/context/CartContest";
 import { useContext, useState } from "react";
 import { BiCartAdd } from "react-icons/bi";
+import { toast } from "react-toastify";
 
 function AddCartBtn({ id, detailPage }) {
   const [addedToCart, setAddedToCart] = useState(false);
@@ -16,11 +17,22 @@ function AddCartBtn({ id, detailPage }) {
 
     setAddedToCart(true);
     setTimeout(() => setAddedToCart(false), 1800);
+    toast.success("Added To Cart", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
 
     setCartData([...CartData, { id }]);
   };
 
-  // ✅ UI split (clean approach)
+  //  UI split
   if (detailPage) {
     return (
       <button

@@ -15,7 +15,7 @@ function ProductCard({ data }) {
   const categorySlug = data.category.toLowerCase().replace(/\s+/g, "-");
 
   return (
-    <div className="group relative bg-white rounded-2xl overflow-hidden flex flex-col w-full max-w-55 border border-gray-100 hover:border-[#1e8d8d]/40 shadow-sm hover:shadow-xl hover:shadow-cyan-100/60 transition-all duration-300 hover:-translate-y-1">
+    <div className="animate__animated animate__fadeInUp group relative bg-white rounded-2xl overflow-hidden flex flex-col w-full max-w-55 border border-gray-100 hover:border-[#1e8d8d]/40 shadow-sm hover:shadow-xl hover:shadow-cyan-100/60 transition-all duration-300 hover:-translate-y-1">
       {/* Wishlist Button */}
       <button
         onClick={() => setWishlisted(!wishlisted)}

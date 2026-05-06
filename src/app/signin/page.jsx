@@ -58,19 +58,19 @@ export default function LoginPage() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-cyan-300/20 blur-2xl" />
 
         <div className="relative z-10 text-center max-w-xs">
-          <div className="w-16 h-16 bg-[#1e8d8d] rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-[#1e8d8d]/30">
+          <div className="animate__animated animate__fadeInUp w-16 h-16 bg-[#1e8d8d] rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg shadow-[#1e8d8d]/30">
             <FiShoppingCart size={28} className="text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-emerald-900 leading-tight mb-3">
+          <h1 className="animate__animated animate__fadeInUp text-3xl font-bold text-emerald-900 leading-tight mb-3">
             Welcome Back,
             <br />
             Shopper 🌿
           </h1>
-          <p className="text-sm text-emerald-800/70 leading-relaxed">
+          <p className="animate__animated animate__fadeInUp text-sm text-emerald-800/70 leading-relaxed">
             Your favourite summer deals, top brands, and trending picks are
             waiting for you.
           </p>
-          <div className="flex flex-wrap gap-2 justify-center mt-6">
+          <div className="animate__animated animate__fadeInUp flex flex-wrap gap-2 justify-center mt-6">
             {["🌿 Fresh Arrivals", "🔥 Hot Deals", "🚚 Fast Delivery"].map(
               (t) => (
                 <span
@@ -103,7 +103,10 @@ export default function LoginPage() {
             </Link>
           </p>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="animate__animated animate__fadeIn space-y-4"
+          >
             {/* Email */}
             <div>
               <label className="block text-xs font-semibold text-gray-600 uppercase tracking-wide mb-1.5">

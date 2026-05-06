@@ -19,7 +19,7 @@ export default function OneRowProducts({ title, products }) {
 
   return (
     <section className="container mx-auto px-4 py-8">
-      <h1 className="text-xl font-semibold text-gray-800 leading-snug mb-4">
+      <h1 className=" text-xl font-semibold text-gray-800 leading-snug mb-4">
         {title}
       </h1>
 

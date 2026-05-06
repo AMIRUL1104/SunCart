@@ -69,7 +69,6 @@ export default function CheckoutPage() {
       setLoading(false);
       setPlaced(true);
     }, 2000);
-    console.log({ ...data, payMethod, products, total });
   };
 
   // ── Order Placed ──

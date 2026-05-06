@@ -56,7 +56,7 @@ export default async function ProductDetails({ params }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
             {/* Image */}
             <div className="relative bg-gray-50 flex items-center justify-center p-10 border-b md:border-b-0 md:border-r border-gray-100 min-h-72">
-              <div className="relative w-full max-w-xs aspect-square">
+              <div className="animate__animated animate__zoomIn relative w-full max-w-xs aspect-square">
                 <Image
                   src={data.image}
                   alt={data.name}
@@ -69,16 +69,16 @@ export default async function ProductDetails({ params }) {
             {/* Details */}
             <div className="p-7 flex flex-col gap-4">
               {/* Category Badge */}
-              <span className="inline-block w-fit text-xs font-medium px-3 py-1 rounded-full bg-[#e1f5ee] text-[#0f6e56]">
+              <span className="animate__animated animate__fadeInRight inline-block w-fit text-xs font-medium px-3 py-1 rounded-full bg-[#e1f5ee] text-[#0f6e56]">
                 {data.category}
               </span>
 
               {/* Name & Brand */}
               <div>
-                <h1 className="text-xl font-semibold text-gray-800 leading-snug mb-1">
+                <h1 className="animate__animated animate__fadeInRight text-xl font-semibold text-gray-800 leading-snug mb-1">
                   {data.name}
                 </h1>
-                <p className="text-sm text-gray-400">
+                <p className="animate__animated animate__fadeInRight text-sm text-gray-400">
                   Brand:{" "}
                   <span className="text-[#1e8d8d] font-medium">
                     {data.brand}
@@ -90,14 +90,14 @@ export default async function ProductDetails({ params }) {
               <StarRating rating={data.rating} isTextRate={true} />
 
               {/* Price */}
-              <div className="text-3xl font-bold text-[#1e8d8d]">
+              <div className="animate__animated animate__fadeInRight text-3xl font-bold text-[#1e8d8d]">
                 ${data.price.toFixed(2)}
               </div>
 
               <hr className="border-gray-100" />
 
               {/* Stock */}
-              <div className="flex items-center gap-2">
+              <div className="animate__animated animate__fadeInRight flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-green-400 inline-block"></span>
                 <p className="text-sm text-gray-500">
                   In stock —{" "}
@@ -123,7 +123,7 @@ export default async function ProductDetails({ params }) {
               <hr className="border-gray-100" />
 
               {/* Description */}
-              <div>
+              <div className="animate__animated animate__fadeInRight">
                 <p className="text-xs font-medium text-gray-400 mb-1">
                   Description
                 </p>
@@ -133,7 +133,7 @@ export default async function ProductDetails({ params }) {
               </div>
 
               {/* Meta */}
-              <div className="flex flex-col gap-1 text-xs text-gray-400">
+              <div className="animate__animated animate__fadeInRight flex flex-col gap-1 text-xs text-gray-400">
                 <div className="flex gap-2">
                   <span>SKU:</span>
                   <span className="text-gray-500">

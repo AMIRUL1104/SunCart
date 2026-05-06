@@ -7,6 +7,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useContext, useState } from "react";
 import { FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
+import { Bounce, toast } from "react-toastify";
 
 const links = [
   { name: "Home", href: "/" },
@@ -85,7 +86,7 @@ function Navbar() {
 
           {/* Sign In */}
           {isPending ? (
-            <span className="loading loading-dots loading-lg"></span>
+            <span className="loading loading-spinner loading-md"></span>
           ) : userInfo ? (
             <div className="flex items-center justify-between gap-4 ">
               <Link href={"/profile"}>
@@ -98,7 +99,20 @@ function Navbar() {
                 />
               </Link>
               <button
-                onClick={async () => await authClient.signOut()}
+                onClick={async () => {
+                  await authClient.signOut();
+                  toast.success("Sign Out Successfully", {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce,
+                  });
+                }}
                 className="px-4 py-2 rounded-lg bg-linear-to-r from-[#1e8d8d] to-emerald-500 text-white text-sm font-semibold shadow-md shadow-[#1e8d8d]/30 hover:shadow-lg hover:shadow-[#1e8d8d]/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
               >
                 Sign out

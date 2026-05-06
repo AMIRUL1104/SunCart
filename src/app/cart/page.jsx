@@ -12,6 +12,7 @@ import {
   FiPlus,
 } from "react-icons/fi";
 import { HiOutlineSparkles } from "react-icons/hi";
+import { Bounce, toast } from "react-toastify";
 
 function CartPage() {
   const { CartData, setCartData } = useContext(CartContext);
@@ -35,9 +36,21 @@ function CartPage() {
   }, [CartData]);
 
   const handleDelete = (id) => {
+    const findProduct = products.find((p) => p.id == id);
     const updated = products.filter((p) => p.id !== id);
     setProducts(updated);
     setCartData(updated);
+    toast.success(`${findProduct.name} Removed From Cart`, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
   };
 
   const handleQty = (id, delta) => {

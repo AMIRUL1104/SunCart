@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FiShoppingBag, FiArrowRight } from "react-icons/fi";
 import { HiSparkles } from "react-icons/hi";
 
+import "animate.css";
 const stats = [
   { value: "500+", label: "Products" },
   { value: "50+", label: "Top Brands" },
@@ -17,11 +18,11 @@ function Banner() {
       <div className="absolute bottom-0 right-[35%] w-60 h-60 rounded-full bg-cyan-300/20 blur-3xl pointer-events-none" />
       <div className="absolute top-6 right-[40%] w-28 h-28 rounded-full bg-[#1e8d8d]/10 blur-2xl pointer-events-none" />
 
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8 md:gap-10">
+      <div className="  container mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8 md:gap-10">
         {/* ── Text Side ── */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left order-2 md:order-1">
           {/* Tag pill */}
-          <div className="inline-flex items-center gap-2 bg-[#1e8d8d]/10 border border-[#1e8d8d]/25 rounded-full px-3.5 py-1.5 mb-4">
+          <div className="animate__animated animate__fadeInLeft inline-flex items-center gap-2 bg-[#1e8d8d]/10 border border-[#1e8d8d]/25 rounded-full px-3.5 py-1.5 mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-[#1e8d8d]" />
             <span className="text-[11px] font-semibold uppercase tracking-widest text-[#0f766e]">
               Summer 2026 Collection
@@ -29,12 +30,12 @@ function Banner() {
           </div>
 
           {/* Heading */}
-          <h1 className="font-bold leading-tight text-emerald-950 text-3xl sm:text-4xl md:text-5xl mb-3">
+          <h1 className=" animate__animated animate__fadeInLeft font-bold leading-tight text-emerald-950 text-3xl sm:text-4xl md:text-5xl mb-3">
             Hot Deals on{" "}
             <span className="text-[#1e8d8d]">Summer Essentials</span>
           </h1>
 
-          <p className="text-sm sm:text-base text-emerald-800/65 leading-relaxed max-w-sm mb-6">
+          <p className="animate__animated animate__fadeInLeft text-sm sm:text-base text-emerald-800/65 leading-relaxed max-w-sm mb-6">
             Discover trendy outfits, skincare & beach accessories at unbeatable
             prices.
           </p>
@@ -43,7 +44,7 @@ function Banner() {
           <div className="flex items-center gap-3 flex-wrap justify-center md:justify-start">
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 bg-linear-to-r from-[#1e8d8d] to-emerald-500 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-[#1e8d8d]/30 hover:shadow-xl hover:shadow-[#1e8d8d]/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+              className=" animate__animated animate__pulse animate__delay-2s	   inline-flex items-center gap-2 bg-linear-to-r from-[#1e8d8d] to-emerald-500 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-[#1e8d8d]/30 hover:shadow-xl hover:shadow-[#1e8d8d]/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
             >
               <FiShoppingBag size={15} />
               Shop Now
@@ -84,7 +85,7 @@ function Banner() {
               alt="Summer sale banner"
               width={600}
               height={420}
-              className="w-full h-auto object-cover"
+              className="w-full h-auto object-cover animate__animated animate__zoomIn"
               priority
             />
 
