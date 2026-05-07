@@ -39,7 +39,9 @@ export default function CheckoutPage() {
 
   useEffect(() => {
     async function loadProducts() {
-      const res = await fetch("/products.json");
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_BETTER_AUTH_URL}/products.json`,
+      );
       const data = await res.json();
       const cartIds = CartData.map((item) => Number(item.id));
       const filtered = data.filter((item) => cartIds.includes(item.id));
