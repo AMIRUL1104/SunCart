@@ -5,6 +5,8 @@ import Link from "next/link";
 import { FiShoppingCart, FiCheck } from "react-icons/fi";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { authClient } from "../../lib/auth-client";
+import { Bounce, toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 const perks = [
   "Exclusive member-only discounts",
@@ -34,6 +36,7 @@ export default function RegisterPage() {
   const [showConfirm, setShowConfirm] = useState(false);
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const strength = password.length > 0 ? getStrength(password) : 0;
   const strengthInfo = strength > 0 ? strengthConfig[strength - 1] : null;
@@ -42,14 +45,14 @@ export default function RegisterPage() {
     register,
     handleSubmit,
     getValues,
-    // watch,
     formState: { errors },
   } = useForm();
 
   const onSubmit = async (userdata) => {
     setLoading(true);
-    setTimeout(() => setLoading(false), 2000);
-    console.log(userdata);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
 
     // user data
     let { name, email, password, photoURL, phone, terms } = userdata;
@@ -66,10 +69,31 @@ export default function RegisterPage() {
     });
 
     if (data) {
-      alert("signup successful");
+      toast("signup successful", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      router.push("/signin");
     }
     if (error) {
-      alert(error.message);
+      toast(error.message, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
     }
   };
 
@@ -89,7 +113,7 @@ export default function RegisterPage() {
           <p className="text-sm text-gray-500 mb-6">
             Already a member?{" "}
             <Link
-              href="/login"
+              href="/signin"
               className="text-[#1e8d8d] font-medium hover:underline"
             >
               Sign in
