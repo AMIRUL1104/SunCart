@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { BiCartAdd } from "react-icons/bi";
 import { CgEye } from "react-icons/cg";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useState } from "react";
@@ -19,7 +18,10 @@ function ProductCard({ data }) {
       {/* Wishlist Button */}
       <button
         onClick={() => setWishlisted(!wishlisted)}
-        className="absolute top-2.5 right-2.5 z-20 bg-white/80 backdrop-blur-sm rounded-full p-1.5 shadow-sm opacity-0 group-hover:opacity-100 transition-all duration-200 hover:scale-110"
+        className="absolute top-2.5 right-2.5 z-20 bg-white/80 backdrop-blur-sm rounded-full p-1.5 shadow-sm
+          opacity-0 group-hover:opacity-100
+          [@media(hover:none)]:opacity-100
+          transition-all duration-200 hover:scale-110"
       >
         {wishlisted ? (
           <AiFillHeart size={16} className="text-rose-500" />
@@ -46,7 +48,12 @@ function ProductCard({ data }) {
         />
 
         {/* Slide-up Overlay Actions */}
-        <div className="absolute bottom-0 left-0 right-0 flex translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
+        <div
+          className="absolute bottom-0 left-0 right-0 flex
+            translate-y-full group-hover:translate-y-0
+            [@media(hover:none)]:translate-y-0
+            transition-transform duration-300 ease-out"
+        >
           <Link
             href={`/products/${categorySlug}/${data.id}`}
             className="flex items-center justify-center gap-1.5 bg-[#1e8d8d]/90 backdrop-blur-sm hover:bg-[#1e8d8d] text-white text-xs font-medium py-2.5 w-full border-r border-white/20 transition-colors duration-200"
@@ -61,7 +68,6 @@ function ProductCard({ data }) {
 
       {/* Info */}
       <div className="px-3 pt-3 pb-3 flex flex-col gap-1.5">
-        {/* Category tag */}
         <span className="text-[10px] font-semibold uppercase tracking-widest text-[#1e8d8d]/70">
           {data.category}
         </span>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FiShoppingCart } from "react-icons/fi";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import footerbg from "@/assets/footerbg.png";
+import Subscribe from "./Subscribe";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -29,7 +30,7 @@ function Footer() {
           fill
           sizes="1500px"
           className="object-cover object-center"
-          quality={70}
+          quality={75}
         />
         {/* Dark green gradient overlay */}
         <div className="absolute inset-0 bg-linear-to-b from-[#0a2823]/82 via-[#083228]/93 to-[#051e19]/97" />
@@ -103,16 +104,7 @@ function Footer() {
             <p className="text-white/50 text-xs leading-relaxed mb-3">
               Get exclusive deals & summer drops straight to your inbox.
             </p>
-            <form className="flex gap-2">
-              <input
-                type="email"
-                placeholder="your@email.com"
-                className="flex-1 min-w-0 bg-white/8 border border-white/15 rounded-lg px-3 py-2 text-xs text-white placeholder-white/30 outline-none focus:border-[#1e8d8d] focus:ring-1 focus:ring-[#1e8d8d]/30 transition-all duration-200"
-              />
-              <button className="bg-[#1e8d8d] hover:bg-[#197a7a] text-white text-xs font-semibold px-3.5 py-2 rounded-lg transition-colors duration-200 whitespace-nowrap shrink-0">
-                Subscribe
-              </button>
-            </form>
+            <Subscribe />
           </div>
         </div>
       </div>

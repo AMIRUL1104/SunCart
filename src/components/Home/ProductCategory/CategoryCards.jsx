@@ -1,13 +1,14 @@
 import getCategories from "@/lib/getCategory";
 import Image from "next/image";
 import Link from "next/link";
+
 function CatetagoryCards() {
   return (
-    <div className="flex gap-4 sm:gap-6 items-center justify-evenly flex-wrap px-4 py-6">
+    <div className="flex lg:justify-evenly lg:flex-wrap gap-4 sm:gap-6 items-center px-4 py-6 overflow-x-auto scrollbar-hide">
       {getCategories.map((cat) => (
         <div
           key={cat.id}
-          className="flex flex-col items-center gap-2 cursor-pointer group"
+          className="flex flex-col items-center gap-2 cursor-pointer group shrink-0"
         >
           {/* Circular Image */}
           <Link href={`/products/${cat.slug}`}>
