@@ -3,7 +3,7 @@
 import { CartContext } from "@/context/CartContest";
 import { useContext, useState } from "react";
 import { BiCartAdd } from "react-icons/bi";
-import { toast } from "react-toastify";
+import { Bounce, toast } from "react-toastify";
 
 function AddCartBtn({ id, detailPage }) {
   const [addedToCart, setAddedToCart] = useState(false);
