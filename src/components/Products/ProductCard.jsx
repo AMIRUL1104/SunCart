@@ -1,34 +1,17 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { CgEye } from "react-icons/cg";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { useState } from "react";
 import StarRating from "../ProDetails/StarRating";
 import AddCartBtn from "./AddCartBtn";
+import WishlistBtn from "./WishlistBtn";
 
 function ProductCard({ data }) {
-  const [wishlisted, setWishlisted] = useState(false);
-
   const categorySlug = data.category.toLowerCase().replace(/\s+/g, "-");
 
   return (
     <div className="animate__animated animate__fadeInUp group relative bg-white rounded-2xl overflow-hidden flex flex-col w-full max-w-55 border border-gray-100 hover:border-[#1e8d8d]/40 shadow-sm hover:shadow-xl hover:shadow-cyan-100/60 transition-all duration-300 hover:-translate-y-1">
       {/* Wishlist Button */}
-      <button
-        onClick={() => setWishlisted(!wishlisted)}
-        className="absolute top-2.5 right-2.5 z-20 bg-white/80 backdrop-blur-sm rounded-full p-1.5 shadow-sm
-          opacity-0 group-hover:opacity-100
-          [@media(hover:none)]:opacity-100
-          transition-all duration-200 hover:scale-110"
-      >
-        {wishlisted ? (
-          <AiFillHeart size={16} className="text-rose-500" />
-        ) : (
-          <AiOutlineHeart size={16} className="text-gray-400" />
-        )}
-      </button>
+      <WishlistBtn />
 
       {/* Badge */}
       {data.isPopular && (
