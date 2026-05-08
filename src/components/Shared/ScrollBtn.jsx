@@ -1,11 +1,8 @@
 "use client";
 
-import { useRef } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
-function ScrollBtn({ buttonName }) {
-  const scrollRef = useRef(null);
-
+function ScrollBtn({ buttonName, scrollRef }) {
   const scroll = (direction) => {
     const container = scrollRef.current;
     if (!container) return;
@@ -16,7 +13,7 @@ function ScrollBtn({ buttonName }) {
     });
   };
 
-  if (buttonName === "left ") {
+  if (buttonName === "left") {
     {
       /* Left Button */
     }

@@ -1,7 +1,12 @@
+"use client";
+
 import ProductCard from "@/components/Products/ProductCard";
 import ScrollBtn from "./ScrollBtn";
+import { useRef } from "react";
 
 export default function OneRowProducts({ title, products }) {
+  const scrollRef = useRef(null);
+
   return (
     <section className="container mx-auto px-4 py-8">
       <h1 className=" text-xl font-semibold text-gray-800 leading-snug mb-4">
